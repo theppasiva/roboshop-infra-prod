@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "shivaram-practice-state-dev"
-    key    = "sg"
+    key    = "SG"
     region = "us-east-1"
     dynamodb_table = "shivaram-practice-locking-dev"
   }
