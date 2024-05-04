@@ -7,9 +7,9 @@ variable "common_tags" {
 }
 
 variable "tags" {
-  default = {
-    Component = "cdn"
-  }
+ default = {
+    Component = "payment"
+ }
 }
 
 variable "project_name" {
@@ -22,4 +22,8 @@ variable "environment" {
 
 variable "zone_name" {
   default = "shivarampractise.online"
+}
+
+variable "iam_instance_profile" {
+  default = "Ec2roleForShellSript"
 }
