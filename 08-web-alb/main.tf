@@ -7,8 +7,6 @@ resource "aws_lb" "web_alb" {
 
   #enable_deletion_protection = true
 
-  
-
   tags = merge(
     var.common_tags,
     var.tags
@@ -35,7 +33,6 @@ resource "aws_lb_listener" "https" {
 
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
-  
 
   zone_name = var.zone_name
 
@@ -48,6 +45,5 @@ module "records" {
         zone_id = aws_lb.web_alb.zone_id
       }
     }
-    
   ]
 }
