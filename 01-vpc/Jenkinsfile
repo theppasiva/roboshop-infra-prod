@@ -6,7 +6,7 @@ pipeline {
         }    
     }
 
-    options { # for usibg options we disabble concurrence builds
+    options { 
         timeout(time: 1, unit: 'HOURS') 
         disableConcurrentBuilds()
     }
