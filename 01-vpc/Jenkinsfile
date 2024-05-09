@@ -37,12 +37,13 @@ pipeline {
                 expression { 
                     params.name == 'apply' 
                 }
+            }
         stage('Destroy') {
             when {
                 expression { 
                     params.name == 'destroy' 
                 }
-}
+            }
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
