@@ -32,7 +32,7 @@ pipeline {
         stage('VPN') {
             steps {
                 sh """
-                    cd 03-apn
+                    cd 03-vpn
                     terraform init -reconfigure
                     terraform apply -auto-approve
                 """
