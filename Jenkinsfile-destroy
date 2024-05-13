@@ -11,6 +11,15 @@ pipeline {
     }
     // build
     stages {
+         stage('APP ALB') {
+                    steps {
+                       sh """
+                        cd 05-app-alb
+                        terraform init -reconfigure
+                        terraform destroy -auto-approve
+                      """
+                    }
+                }
         stage('DB ALB') {
             parallel {
                 stage('DB') {
@@ -22,15 +31,7 @@ pipeline {
                       """
                     }
                 }
-                stage('APP ALB') {
-                    steps {
-                       sh """
-                        cd 05-app-alb
-                        terraform init -reconfigure
-                        terraform destroy -auto-approve
-                      """
-                    }
-                }
+               
             }
         }
         stage('VPN') {
