@@ -40,7 +40,7 @@ resource "null_resource" "mongodb" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
       "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh mongodb dev"
+      "sudo sh /tmp/bootstrap.sh mongodb prod"
     ]
   }
 }
@@ -87,7 +87,7 @@ resource "null_resource" "redis" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
       "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh redis dev"
+      "sudo sh /tmp/bootstrap.sh redis prod"
     ]
   }
 }
@@ -135,7 +135,7 @@ resource "null_resource" "mysql" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
       "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh mysql dev"
+      "sudo sh /tmp/bootstrap.sh mysql prod"
     ]
   }
 }
@@ -183,7 +183,7 @@ resource "null_resource" "rabbitmq" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
       "chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh rabbitmq dev"
+      "sudo sh /tmp/bootstrap.sh rabbitmq prod"
     ]
   }
 }
@@ -195,7 +195,7 @@ module "records" {
 
   records = [
     {
-      name    = "mongodb-dev"
+      name    = "mongodb-prod"
       type    = "A"
       ttl     = 1
       records = [
@@ -203,7 +203,7 @@ module "records" {
       ]
     },
     {
-      name    = "redis-dev"
+      name    = "redis-prod"
       type    = "A"
       ttl     = 1
       records = [
@@ -211,7 +211,7 @@ module "records" {
       ]
     },
     {
-      name    = "mysql-dev"
+      name    = "mysql-prod"
       type    = "A"
       ttl     = 1
       records = [
@@ -219,7 +219,7 @@ module "records" {
       ]
     },
     {
-      name    = "rabbitmq-dev"
+      name    = "rabbitmq-prod"
       type    = "A"
       ttl     = 1
       records = [

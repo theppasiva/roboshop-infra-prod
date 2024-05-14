@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "shivaram-practice-state-dev"
+    bucket = "shivaram-practice-state-prod"
     key    = "vpc"
     region = "us-east-1"
-    dynamodb_table = "shivaram-practice-locking-dev"
+    dynamodb_table = "shivaram-practice-locking-prod"
   }
 }
 
